@@ -1,0 +1,10 @@
+# PySecure Scanner Dependencies
+# Core dependencies
+python>=3.8
+
+# Optional dependencies for enhanced features
+# requests>=2.31.0  # For HTTP security checks
+# paramiko>=3.4.0   # For SSH testing
+# cryptography>=41.0.0  # For SSL/TLS checks
+
+# Install with: pip install -r requirements.txt

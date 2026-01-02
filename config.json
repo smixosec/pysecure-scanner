@@ -1,0 +1,14 @@
+{
+  "default_target": "127.0.0.1",
+  "default_ports": "21,22,23,25,53,80,110,443,3306,5432,8080,8443",
+  "timeout": 2,
+  "threads": 30,
+  "banner_grab": true,
+  "vuln_scan": false,
+  "save_reports": true,
+  "dark_mode": false,
+  "recent_targets": [
+    "127.0.0.1",
+    "192.168.11.192"
+  ]
+}
