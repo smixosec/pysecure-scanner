@@ -7,108 +7,40 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-windows:
+  build-release:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
     
-    - name: Install dependencies
+    - name: Install PyInstaller
+      run: pip install pyinstaller
+    
+    - name: Build EXE
       run: |
-        python -m pip install --upgrade pip
-        pip install pyinstaller
-        pip install -r requirements.txt
-    
-    - name: Build Windows executable
-      run: |
-        # Clean previous builds
-        Remove-Item -Path "dist", "build" -Recurse -Force -ErrorAction SilentlyContinue
-        Remove-Item -Path "*.spec" -Force -ErrorAction SilentlyContinue
+        pyinstaller --onefile --windowed --name=PySecureScanner --noconsole main.py
         
-        # Build with PyInstaller
-        pyinstaller `
-          --onefile `
-          --windowed `
-          --name=PySecureScanner `
-          --noconsole `
-          --clean `
-          main.py
+        # Create helper files
+        echo @echo off > dist\RUN.bat
+        echo echo Starting PySecure Scanner... >> dist\RUN.bat
+        echo PySecureScanner.exe %%* >> dist\RUN.bat
         
-        # Create batch file
-        echo @echo off > dist\pysecure.bat
-        echo "%%~dp0PySecureScanner.exe" %%* >> dist\pysecure.bat
-        
-        # Create README
-        echo # PySecure Scanner for Windows > dist\README.txt
-        echo. >> dist\README.txt
-        echo ## Quick Start: >> dist\README.txt
-        echo 1. Extract all files >> dist\README.txt
-        echo 2. Double-click PySecureScanner.exe for GUI >> dist\README.txt
-        echo 3. OR run pysecure.bat in Command Prompt >> dist\README.txt
-        echo. >> dist\README.txt
-        echo ## Examples: >> dist\README.txt
-        echo pysecure.bat --gui >> dist\README.txt
-        echo pysecure.bat --target 127.0.0.1 >> dist\README.txt
-        echo pysecure.bat --target 192.168.1.0/24 --report html >> dist\README.txt
+        echo # PySecure Scanner > dist\README.txt
+        echo Run PySecureScanner.exe or RUN.bat >> dist\README.txt
     
-    - name: Create ZIP package
-      run: |
-        cd dist
-        Compress-Archive -Path "PySecureScanner.exe", "pysecure.bat", "README.txt" -DestinationPath "PySecureScanner-Windows.zip" -Force
-    
-    - name: Upload Windows Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: PySecureScanner-Windows
-        path: dist/PySecureScanner-Windows.zip
-    
-    - name: Create GitHub Release
+    - name: Create Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref_name }}
-        name: PySecure Scanner ${{ github.ref_name }}
-        body: |
-          # PySecure Scanner ${{ github.ref_name }}
-          
-          ## 📦 Windows Download
-          Download: **PySecureScanner-Windows.zip**
-          
-          ## 🚀 Quick Start for Windows
-          1. Download **PySecureScanner-Windows.zip**
-          2. Extract all files
-          3. **Double-click** `PySecureScanner.exe` for GUI mode
-          4. **OR** run `pysecure.bat` in Command Prompt
-          
-          ## 💻 Usage Examples
-          ```cmd
-          # GUI Mode
-          PySecureScanner.exe
-          
-          # CLI Mode
-          pysecure.bat --target 192.168.1.1
-          pysecure.bat --target 192.168.1.0/24 --report html
-          pysecure.bat --target example.com --ports 80,443,8080
-          ```
-          
-          ## ⚠️ Important Notes
-          - Windows Defender may flag as "unrecognized app"
-          - Click "More info" → "Run anyway" if needed
-          - Requires Windows 7 or higher
-          
-          ## 🔗 Source Code
-          Repository: https://github.com/${{ github.repository }}
-          
-          ## ⚖️ Legal Notice
-          **Only use on networks you own or have permission to scan.**
+        name: Release ${{ github.ref_name }}
+        files: |
+          dist/PySecureScanner.exe
+          dist/RUN.bat
         draft: false
-        prerelease: false
-        files: dist/PySecureScanner-Windows.zip
