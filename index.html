@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PySecure Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-download {
+            background: #27ae60;
+        }
+        .btn-download:hover {
+            background: #219653;
+        }
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 PySecure Scanner</h1>
+        <p>A professional network security scanner for penetration testing and network auditing.</p>
+        
+        <h2>📦 Installation</h2>
+        <pre><code>git clone https://github.com/yourusername/pysecure-scanner.git
+cd pysecure-scanner
+python main.py --gui</code></pre>
+        
+        <h2>📥 Download</h2>
+        <a href="https://github.com/yourusername/pysecure-scanner/archive/refs/heads/main.zip" class="btn btn-download">⬇️ Download ZIP</a>
+        
+        <h2>🚀 Quick Start</h2>
+        <h3>GUI Mode:</h3>
+        <pre><code>python main.py --gui</code></pre>
+        
+        <h3>CLI Mode:</h3>
+        <pre><code># Scan single IP
+python main.py --target 127.0.0.1
+
+# Scan network
+python main.py --target 192.168.1.0/24 --report html</code></pre>
+        
+        <h2>📁 Project Structure</h2>
+        <pre><code>pysecure-scanner/
+├── main.py          # Main entry point
+├── gui.py           # Graphical interface
+├── scanner.py       # Core scanner
+├── report.py        # Reporting
+├── vulnerabilities.py
+└── README.md</code></pre>
+        
+        <h2>📚 Documentation</h2>
+        <p>Full documentation is in the README.md file.</p>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p>⭐ <strong>Star this repository</strong> if you find it useful!</p>
+            <p>🐛 <strong>Report issues</strong> on the GitHub page</p>
+            <a href="https://github.com/yourusername/pysecure-scanner" class="btn">View on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

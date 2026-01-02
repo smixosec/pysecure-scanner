@@ -1,0 +1,7 @@
+# PySecure Scanner
+# Core requirements for building
+pyinstaller>=5.0
+
+# Optional for enhanced features
+# requests>=2.31.0
+# paramiko>=3.4.0
