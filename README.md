@@ -1,146 +1,82 @@
-<div align="center">
+# PySecure Scanner
 
-# 🔒 PySecure Scanner
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/smixosec/pysecure-scanner/releases)
+[![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)](https://www.python.org)
+[![License](https://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/smixosec/pysecure-scanner)
 
-### **The Modern Network Security Scanner**
-
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.0-blue)](https://github.com/smixosec/pysecure-scanner/releases)
-[![Stars](https://img.shields.io/github/stars/smixosec/pysecure-scanner?style=social)](https://github.com/smixosec/pysecure-scanner/stargazers)
-
-**Fast · Lightweight · Professional**
-
-[📥 Installation](#-installation) •
-[🚀 Quick Start](#-quick-start) •
-[📖 Documentation](https://github.com/smixosec/pysecure-scanner/wiki) •
-[🐛 Report Bug](https://github.com/smixosec/pysecure-scanner/issues)
-
-</div>
+**PySecure Scanner** is a professional network security scanner for penetration testing, port scanning, service detection, and vulnerability assessment. It features both a modern GUI and powerful CLI interface.
 
 ---
 
-## 📸 Screenshot
+## Screenshot
 
 ![PySecure Scanner GUI](screenshots/main-gui.png)
 
-*Modern GUI interface with real-time scanning and color-coded risk assessment*
+*Professional interface with real-time scan results and color-coded risk assessment*
 
 ---
 
-## ⚡ Why PySecure Scanner?
+## Features
 
-PySecure Scanner is a **professional network security tool** designed for penetration testers and security professionals. Built with Python for **speed, simplicity, and power**.
+### 🎯 Scanning Capabilities
+- **Port Scanning** - TCP port scanning with configurable ranges
+- **Service Detection** - Automatic service identification
+- **Banner Grabbing** - Capture service banners for analysis
+- **Host Discovery** - Network host discovery tools
+- **Multi-threading** - Fast scanning with configurable threads (default: 30)
 
-```bash
-# Traditional scanners take 17 minutes
-# PySecure Scanner does it in seconds ⚡
+### 🔍 Vulnerability Assessment
+- **Version Detection** - Identify outdated software versions
+- **Weak Credential Checks** - Detect common default credentials
+- **SSL/TLS Analysis** - Check for weak encryption
+- **HTTP Security** - Analyze web server security headers
+- **Risk Assessment** - Automatic risk level classification (High/Medium/Low)
 
-python main.py --gui    # Launch GUI
-python main.py --target 192.168.1.0/24 --vuln    # CLI scan
-```
+### 📊 Reporting
+- **Multiple Formats** - CSV, HTML, JSON, and text reports
+- **Professional HTML** - Beautiful, interactive HTML reports
+- **Statistics** - Detailed scan statistics and summaries
+- **Export Tools** - Easy export and sharing capabilities
 
-**Key Advantages:**
-
-| Feature | PySecure Scanner | Traditional Tools |
-|---------|------------------|-------------------|
-| **Setup Time** | < 1 minute ⚡ | 5-10 minutes |
-| **GUI Interface** | ✅ Modern & Built-in | ❌ Third-party only |
-| **Dependencies** | ✅ Pure Python | ⚠️ Complex setup |
-| **Learning Curve** | ✅ Beginner-friendly | ⚠️ Steep |
-| **Report Formats** | ✅ 4 formats | ⚠️ Limited |
-| **Speed** | ✅ Multi-threaded | ⚠️ Varies |
-
----
-
-## ✨ Features
-
-### 🎯 **Core Capabilities**
-
-- **⚡ Lightning Fast Scanning** - Multi-threaded engine with 30+ concurrent threads
-- **🔍 Service Detection** - Automatic service identification and banner grabbing
-- **🛡️ Vulnerability Assessment** - Built-in checks for common vulnerabilities
-- **📊 Professional Reporting** - Export to CSV, HTML, JSON, and TXT
-- **🎨 Modern GUI** - User-friendly interface with real-time updates
-- **💻 Full CLI Support** - Complete command-line interface for automation
-- **🎯 Flexible Targeting** - Support for single IPs, CIDR ranges, and hostnames
-- **🌈 Risk Assessment** - Color-coded risk levels (High/Medium/Low)
-
-### 🚀 **Advanced Features**
-
-- Multi-threading with configurable thread count
-- Real-time progress tracking and live results
-- Banner grabbing for detailed service info
-- Weak credential detection
-- Network range scanning (CIDR notation)
-- Custom port specifications (ranges and lists)
-- Automatic service version detection
-- Zero external dependencies for basic scanning
+### 🖥️ User Interface
+- **Modern GUI** - Professional Tkinter-based interface
+- **CLI Support** - Full command-line interface
+- **Real-time Updates** - Live results during scanning
+- **Progress Tracking** - Visual progress indicators
 
 ---
 
-## 📥 Installation
+## Installation
 
-### **Option 1: Quick Install (Recommended)**
+### Quick Start
 
 ```bash
 # Clone the repository
 git clone https://github.com/smixosec/pysecure-scanner.git
 cd pysecure-scanner
 
-# Run directly - no installation needed!
+# Run (no installation needed!)
 python main.py --gui
 ```
 
-### **Option 2: From Release**
-
-1. Download from [Releases](https://github.com/smixosec/pysecure-scanner/releases)
-2. Extract and run `python main.py --gui`
-
-### **Requirements**
-
+### Requirements
 - Python 3.8 or higher
 - No external dependencies required
 - Works on Windows, Linux, and macOS
 
 ---
 
-## 🚀 Quick Start
+## Usage
 
-### **GUI Mode** (Recommended for Beginners)
-
+### GUI Mode
 ```bash
 python main.py --gui
 ```
 
-### **CLI Mode** (For Automation & Advanced Users)
+### CLI Mode
 
-```bash
-# Quick scan
-python main.py --target 192.168.1.1
-
-# Network scan with report
-python main.py --target 192.168.1.0/24 --report html
-
-# Full security audit
-python main.py --target example.com --ports 1-1000 --vuln --banner
-
-# Custom ports
-python main.py --target 192.168.1.1 --ports 21,22,80,443,3389,8080
-
-# Fast scan with high threads
-python main.py --target 10.0.0.1 --threads 50
-
-# Export to JSON
-python main.py --target scanme.nmap.org --report json --output results.json
-```
-
----
-
-## 📚 Usage Examples
-
-### **Basic Scanning**
-
+**Basic Scanning:**
 ```bash
 # Scan single host
 python main.py --target 192.168.1.1
@@ -152,113 +88,142 @@ python main.py --target 192.168.1.0/24
 python main.py --target example.com --ports 80,443,8080
 ```
 
-### **Advanced Scanning**
-
+**Advanced Scanning:**
 ```bash
-# Vulnerability scan with banner grabbing
+# Vulnerability scan with banners
 python main.py --target 192.168.1.1 --vuln --banner
 
-# Fast scan with 100 threads
+# Fast scan with high threads
 python main.py --target 10.0.0.0/24 --threads 100
 
-# Comprehensive audit with HTML report
+# Full security audit with HTML report
 python main.py --target company.com --vuln --banner --report html --output audit.html
 ```
 
-### **Reporting**
-
+**Reporting:**
 ```bash
-# CSV format
-python main.py --target 192.168.1.1 --report csv
-
-# HTML report (professional format)
+# HTML report
 python main.py --target 192.168.1.1 --report html --output report.html
 
-# JSON for automation
+# JSON export
 python main.py --target 192.168.1.1 --report json --output scan.json
 
-# Text format
-python main.py --target 192.168.1.1 --report txt
+# CSV format
+python main.py --target 192.168.1.1 --report csv
 ```
 
 ---
 
-## ⚙️ Command Options
+## Command Options
 
 | Option | Description | Example |
 |--------|-------------|---------|
-| `--target` | Target IP, hostname, or network | `192.168.1.1` or `192.168.1.0/24` |
+| `--target` | Target IP, hostname, or network (CIDR) | `192.168.1.1` or `10.0.0.0/24` |
 | `--ports` | Ports to scan (comma-separated or range) | `80,443` or `1-1000` |
 | `--threads` | Number of scanning threads | `--threads 50` |
 | `--timeout` | Connection timeout in seconds | `--timeout 2.0` |
 | `--vuln` | Enable vulnerability scanning | `--vuln` |
 | `--banner` | Enable banner grabbing | `--banner` |
 | `--report` | Report format (csv, html, json, txt) | `--report html` |
-| `--output` | Output file path | `--output scan_results.html` |
+| `--output` | Output file path | `--output scan.html` |
 | `--gui` | Launch GUI mode | `--gui` |
 
 ---
 
-## ✅ Pros
+## Port Specification
 
-- ✔️ **Easy Setup** - No complex dependencies or configuration
-- ✔️ **Fast Scanning** - Multi-threaded engine for rapid results
-- ✔️ **Modern GUI** - Intuitive interface with real-time feedback
-- ✔️ **Multiple Reports** - 4 export formats for different needs
-- ✔️ **Cross-Platform** - Works on Windows, Linux, and macOS
-- ✔️ **Pure Python** - Easy to modify and extend
-- ✔️ **Beginner Friendly** - Simple commands, clear output
-- ✔️ **Professional Grade** - Built-in vulnerability detection
-- ✔️ **Active Development** - Regular updates and improvements
+PySecure Scanner supports flexible port targeting:
 
----
+```bash
+# Single port
+python main.py --target 192.168.1.1 --ports 80
 
-## ❌ Cons
+# Multiple ports
+python main.py --target 192.168.1.1 --ports 80,443,8080
 
-- ✖️ **TCP Only** - Currently no UDP scanning support
-- ✖️ **No IPv6** - IPv6 support planned for future release
-- ✖️ **Basic Vuln Detection** - Not as comprehensive as dedicated vulnerability scanners
-- ✖️ **Admin Rights** - May require elevated privileges for low port scanning (< 1024)
-- ✖️ **Python Required** - Needs Python 3.8+ installed (no standalone binary yet)
+# Port ranges
+python main.py --target 192.168.1.1 --ports 1-1024
+
+# Combined
+python main.py --target 192.168.1.1 --ports 21,22,80,443,8000-9000
+```
 
 ---
 
-## 📁 Project Structure
+## Target Formats
+
+Supports various target specifications:
+
+- **Single IP:** `192.168.1.1`
+- **Network (CIDR):** `192.168.1.0/24`
+- **Hostname:** `example.com`
+- **Localhost:** `127.0.0.1`
+
+---
+
+## Examples
+
+### Basic Network Audit
+```bash
+python main.py --target 192.168.1.0/24 --ports 21,22,80,443,3389 --report html
+```
+
+### Web Server Security Check
+```bash
+python main.py --target example.com --ports 80,443,8080,8443 --vuln --banner
+```
+
+### Fast Port Sweep
+```bash
+python main.py --target 10.0.0.0/8 --threads 100 --ports 80,443
+```
+
+### Comprehensive Security Scan
+```bash
+python main.py --target 192.168.1.1 --ports 1-65535 --vuln --banner --report json --output full_scan.json
+```
+
+---
+
+## Project Structure
 
 ```
 pysecure-scanner/
-├── main.py              # Main entry point & CLI launcher
-├── gui.py               # Tkinter GUI interface
+├── main.py              # Main entry point (CLI & GUI launcher)
+├── gui.py               # Modern GUI interface
 ├── scanner.py           # Core scanning engine
-├── vulnerabilities.py   # Vulnerability detection module
-├── report.py            # Multi-format report generator
+├── vulnerabilities.py   # Vulnerability detection
+├── report.py            # Reporting system
 ├── utils.py             # Helper functions
 ├── config.json          # User configuration
-├── requirements.txt     # Python dependencies
+├── requirements.txt     # Dependencies
 └── README.md           # This file
 ```
 
 ---
 
-## 🛡️ Legal & Ethical Use
+## Legal Notice
 
-```diff
-⚠️ IMPORTANT: FOR AUTHORIZED TESTING ONLY
-
-+ ✅ DO: Use on systems you own or have written permission to test
-+ ✅ DO: Follow responsible disclosure practices
-+ ✅ DO: Comply with all applicable laws and regulations
-
-- ❌ DON'T: Scan networks without authorization
-- ❌ DON'T: Use for malicious purposes or illegal activities
-- ❌ DON'T: Violate computer fraud and abuse laws
 ```
+⚠️ FOR AUTHORIZED SECURITY TESTING ONLY
 
-**By using PySecure Scanner, you agree to:**
-- Only scan systems you own or have explicit permission to test
-- Comply with all local, state, and federal laws
-- Use the tool responsibly and ethically
-- Accept full responsibility for your actions
+This tool is designed for authorized security testing and network auditing.
+
+✅ ACCEPTABLE USE:
+  • Testing systems you own
+  • Testing with explicit written permission
+  • Educational purposes in controlled environments
+  • Professional penetration testing engagements
+
+❌ PROHIBITED USE:
+  • Scanning networks without authorization
+  • Unauthorized penetration testing
+  • Malicious hacking or exploitation
+  • Violating computer fraud and abuse laws
+
+By using PySecure Scanner, you agree to use it responsibly and ethically.
+The developers assume NO LIABILITY for misuse of this tool.
+```
 
 **Applicable Laws:**
 - 🇺🇸 Computer Fraud and Abuse Act (CFAA)
@@ -268,61 +233,50 @@ pysecure-scanner/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-We welcome contributions! Here's how you can help:
+Contributions are welcome! Here's how you can help:
 
-- 🌟 **Star this repo** - Show your support!
-- 🐛 **Report bugs** - [Open an issue](https://github.com/smixosec/pysecure-scanner/issues)
-- 💡 **Suggest features** - We're always looking for ideas
-- 🔧 **Submit PRs** - Code contributions welcome
-- 📖 **Improve docs** - Help others get started
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-```bash
-# Fork and clone
-git clone https://github.com/smixosec/pysecure-scanner.git
-
-# Create branch
-git checkout -b feature/amazing-feature
-
-# Make changes and commit
-git commit -m "Add amazing feature"
-
-# Push and create PR
-git push origin feature/amazing-feature
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ---
 
-## 📄 License
+## Support
 
-MIT License - see [LICENSE](LICENSE) file for details.
+- **Documentation:** [Wiki](https://github.com/smixosec/pysecure-scanner/wiki)
+- **Bug Reports:** [Issue Tracker](https://github.com/smixosec/pysecure-scanner/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/smixosec/pysecure-scanner/discussions)
 
 ---
 
-## 🙏 Acknowledgments
+## License
 
-Built with ❤️ by the security community.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
 
 Special thanks to:
 - **Python Security Community** - For inspiration and best practices
+- **Nmap Project** - For pioneering network scanning techniques
+- **OWASP** - For vulnerability classification standards
 - **Contributors** - Everyone who has helped improve this tool
-- **You** - For choosing PySecure Scanner!
 
 ---
 
-<div align="center">
+## Download
+
+Latest release: [v2.0](https://github.com/smixosec/pysecure-scanner/releases)
+
+---
 
 **Made with 🔒 for Security Professionals**
 
-[⬇️ Download](https://github.com/smixosec/pysecure-scanner/releases) • [📖 Docs](https://github.com/smixosec/pysecure-scanner/wiki) • [💬 Discussions](https://github.com/smixosec/pysecure-scanner/discussions)
-
-**⭐ If you find this useful, please star the repo! ⭐**
-
----
-
-**Topics:** `python` `security` `scanner` `port-scanner` `network-scanner` `penetration-testing` `vulnerability-scanner` `cybersecurity` `infosec` `hacking-tool`
-
-</div>
+Copyright © 2026 PySecure Scanner Team
