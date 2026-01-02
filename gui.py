@@ -1245,7 +1245,7 @@ Hotkeys:
     
     def show_docs(self):
         """Show documentation in browser"""
-        docs_url = "https://github.com/yourusername/pysecure-scanner"
+        docs_url = "https://github.com/smixosec/pysecure-scanner"
         webbrowser.open(docs_url)
     
     def show_about(self):
