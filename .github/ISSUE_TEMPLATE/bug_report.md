@@ -1,9 +1,10 @@
 ---
 name: Bug Report
 about: Report a bug or issue with PySecure Scanner
-title: '[BUG] '
+title: "[BUG] "
 labels: bug
 assignees: ''
+
 ---
 
 ## Bug Description
