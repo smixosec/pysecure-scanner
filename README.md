@@ -40,7 +40,7 @@ A professional network security scanner for penetration testing and network audi
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pysecure-scanner.git
+git clone https://github.com/smixosec/pysecure-scanner.git
 cd pysecure-scanner
 
 # Install (no external dependencies required)
